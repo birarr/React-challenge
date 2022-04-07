@@ -7,7 +7,7 @@ export const Home = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [searchSubmit, setSearchSubmit] = useState(false)
 
-  const handleSearch = (search) => {
+  const handleSearch = () => {
     setSearchSubmit(true)
   }
 
@@ -20,10 +20,19 @@ export const Home = () => {
             type="text"
             placeholder="Search..."
             onChange={(event) => setSearchTerm(event.target.value)}
+            onKeyPress={(event) => {
+              if (event.key === 'Enter') {
+                handleSearch()
+              }
+            }}
             className="inputTitle"
           ></input>
-          <button onClick={handleSearch} className="buttonSearch">
-            search
+          <button
+            onClick={handleSearch}
+            onKeyDown={handleSearch}
+            className="buttonSearch"
+          >
+            Search
           </button>
         </div>
       </div>

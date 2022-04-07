@@ -1,18 +1,8 @@
 import React from 'react'
 
 import './styles.css'
-/**
- * This should be a React component that, at the very least, comprises an image component a title and a description or subheading.
- *
- * @param props
- * @returns
- *
- *
- *
- */
 
-const Card = (props) => {
-  const { track } = props
+export const Card = ({ track }) => {
   return (
     <div className="cardContainer">
       <div className="card">
@@ -39,5 +29,3 @@ const Card = (props) => {
     </div>
   )
 }
-
-export default Card

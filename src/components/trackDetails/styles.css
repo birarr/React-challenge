@@ -1,6 +1,6 @@
 .cardDetailsontainer {
   display: flex;
-  width: 1040px;
+  width: 100%;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
@@ -39,9 +39,7 @@
 .tag-teal {
   background-color: #2ad46c;
 }
-.tag-purple {
-  background-color: #5e76bf;
-}
+
 .tag-red {
   background-color: #f51230;
 }

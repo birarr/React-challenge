@@ -1,13 +1,11 @@
 import React from 'react'
-import { useQuery, useQueries } from 'react-query'
-import { useParams, useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useQuery } from 'react-query'
+import { useParams } from 'react-router-dom'
 
 import './styles.css'
 
 export const TrackDetails = () => {
   const { id } = useParams()
-  const navigate = useNavigate()
 
   const fetchTrack = async () => {
     const token = localStorage.getItem('token')
@@ -24,7 +22,6 @@ export const TrackDetails = () => {
     'track',
     fetchTrack
   )
-  console.log({ trackData })
 
   return (
     <div className="cardDetailsontainer">
@@ -38,10 +35,7 @@ export const TrackDetails = () => {
           ) : (
             <span className="tag tag-teal">No explicit</span>
           )}
-
-          {/* <Link to={}> */}
           <h4>{trackData?.name}</h4>
-          {/* </Link> */}
           <p>Duration {(trackData?.duration_ms / 1000 / 60).toFixed(2)}m</p>
           <div className="user">
             <img
