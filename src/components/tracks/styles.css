@@ -4,12 +4,12 @@
   justify-content: center;
 }
 
-/* .infiniteScroll {
-  display: 'grid';
-  grid-template-columns: '1fr 1fr 1fr 1fr' important!;
-  row-gap: '10px';
-  column-gap: '20px';
-} */
+.loginAlert {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 .listLink {
   color: inherit;

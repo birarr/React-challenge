@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { LoginButton } from '../../components/loginButton'
 
 import './styles.css'
 
 export const Login = () => {
-  const CLIENT_ID = 'ac87a95f875f405f83beff47c9fbbe74'
-  const REDIRECT_URI = 'http://localhost:8080/'
-  const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize'
-  const RESPONSE_TYPE = 'token'
+  // // const CLIENT_ID = 'ac87a95f875f405f83beff47c9fbbe74'
+  // const REDIRECT_URI = 'http://localhost:8080/'
+  // const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize'
+  // const RESPONSE_TYPE = 'token'
+
+  console.log(process.env.AUTH_ENDPOINT)
 
   const [token, setToken] = useState('')
 
@@ -37,10 +40,10 @@ export const Login = () => {
     <div className="container">
       {!token ? (
         <a
-          href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
+          href={`${process.env.REACT_APP_AUTH_ENDPOINT}?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URI}&response_type=${process.env.REACT_APP_ESPONSE_TYPE}`}
           className="loginLink"
         >
-          <button className="loginButton">Login to Spotify</button>
+          <LoginButton />
         </a>
       ) : (
         <button onClick={logout} className="loginButton">

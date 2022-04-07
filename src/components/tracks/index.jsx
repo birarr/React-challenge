@@ -6,10 +6,12 @@ import ClipLoader from 'react-spinners/ClipLoader'
 import { Card } from '../Card'
 
 import './styles.css'
+import { LoginButton } from '../loginButton'
 
 export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
   const [color, setColor] = useState('#DADADA')
   const [loading, setLoading] = useState(true)
+  const token = localStorage.getItem('token')
 
   const myDivStyle = {
     display: 'grid',
@@ -27,7 +29,6 @@ export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
       offset = pageParamSplit[1].substring(0, 2)
     }
 
-    const token = localStorage.getItem('token')
     const response = await fetch(
       `https://api.spotify.com/v1/search?q=${searchTerm}%2C%20&type=track&artist&market=GB&limit=10&offset=${offset}`,
       {
@@ -61,41 +62,50 @@ export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
   }, [searchSubmit])
 
   return (
-    <div className="container">
-      {trackStatus === 'loading' && (
-        <div className="fetchLoading">
-          <ClipLoader color={color} loading={loading} size={50} />
-          Loading data...
+    <>
+      {!token ? (
+        <div className="loginAlert">
+          <h1>Please, login to your spotify acount</h1>
+          <LoginButton />
         </div>
-      )}
-      {trackStatus === 'error' && (
-        <div className="fetchError">Error fetching data</div>
-      )}
-      {trackStatus === 'success' && (
-        <InfiniteScroll
-          hasMore={hasNextPage}
-          loadMore={fetchNextPage}
-          loader={
-            <div className="fetchLoading" key={Math.random(1000 * 1000)}>
+      ) : (
+        <div className="container">
+          {trackStatus === 'loading' && (
+            <div className="fetchLoading">
               <ClipLoader color={color} loading={loading} size={50} />
               Loading data...
             </div>
-          }
-          style={myDivStyle}
-        >
-          {trackData?.pages?.map((track) =>
-            track?.tracks?.items?.map((track, index) => (
-              <Link
-                key={index}
-                to={`trackdetails/${track?.id}`}
-                className="listLink"
-              >
-                <Card track={track} />
-              </Link>
-            ))
           )}
-        </InfiniteScroll>
+          {trackStatus === 'error' && (
+            <div className="fetchError">Error fetching data</div>
+          )}
+          {trackStatus === 'success' && (
+            <InfiniteScroll
+              hasMore={hasNextPage}
+              loadMore={fetchNextPage}
+              loader={
+                <div className="fetchLoading" key={Math.random(1000 * 1000)}>
+                  <ClipLoader color={color} loading={loading} size={50} />
+                  Loading data...
+                </div>
+              }
+              style={myDivStyle}
+            >
+              {trackData?.pages?.map((track) =>
+                track?.tracks?.items?.map((track, index) => (
+                  <Link
+                    key={index}
+                    to={`trackdetails/${track?.id}`}
+                    className="listLink"
+                  >
+                    <Card track={track} />
+                  </Link>
+                ))
+              )}
+            </InfiniteScroll>
+          )}
+        </div>
       )}
-    </div>
+    </>
   )
 }
