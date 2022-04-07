@@ -32,3 +32,10 @@
   background: #e8e8e8;
   opacity: 0.8;
 }
+
+@media only screen and (max-width: 600px) {
+  .homeTitleH1 {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+}

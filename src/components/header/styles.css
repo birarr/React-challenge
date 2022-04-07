@@ -2,6 +2,10 @@
   background-color: #eb0042;
 }
 
+.headerLogo {
+  margin-left: 15px;
+}
+
 .headerLinks {
   display: flex;
   align-items: center;

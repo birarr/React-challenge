@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Header } from './components/header'
 import { Home } from './pages/home'
 import './global.css'
-import { TrackDetails } from './components/trackDetails'
+import { Track } from './pages/track'
 class App extends Component {
   render() {
     return (
@@ -14,7 +14,7 @@ class App extends Component {
             <section>
               <Routes>
                 <Route path={'/'} element={<Home />} />
-                <Route path="/trackdetails/:id" element={<TrackDetails />} />
+                <Route path="/trackdetails/:id" element={<Track />} />
               </Routes>
             </section>
           </main>

@@ -14,7 +14,7 @@ export const Home = () => {
   return (
     <>
       <div className="homeTitle">
-        <h1>United Kingdom Spotify tracks</h1>
+        <h1 className="homeTitleH1">United Kingdom Spotify tracks</h1>
         <div>
           <input
             type="text"
