@@ -1,0 +1,62 @@
+.container img {
+  width: 30%;
+  height: 100%;
+  object-fit: cover;
+
+  -webkit-box-reflect: below 2px
+    linear-gradient(transparent, transparent, #0004);
+
+  transform-origin: center;
+  transform: perspective(800px) rotateY(25deg);
+  transition: 0.5s;
+}
+.cardContainer {
+  max-width: 600px;
+  max-height: 450px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.cardContainer img {
+  position: relative;
+  object-fit: cover;
+}
+
+.container img:hover {
+  transform: perspective(800px) rotateY(0deg);
+  opacity: 1;
+}
+
+.card {
+  margin-bottom: 10px;
+  min-height: 220px;
+  max-height: 220px;
+  padding: 10px;
+  overflow: hidden;
+  margin: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  width: 250px;
+}
+
+.card:hover {
+  background-color: #f8f8f8;
+}
+
+.artistNameTitle {
+  margin: 0 10px 0 0;
+}
+
+.contentBx h2 {
+  margin-bottom: 10px;
+}
+
+.contentBx {
+  overflow: hidden;
+}
