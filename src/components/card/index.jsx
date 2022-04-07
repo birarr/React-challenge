@@ -14,16 +14,18 @@ export const Card = ({ track }) => {
         <div className="contentBx">
           <h3>{track?.name}</h3>
           <h4 className="artistNameTitle">Artist:</h4>
-          {track?.artists?.map((artist) => {
-            return (
-              <div
-                className="artistName"
-                key={track?.id + Math.random(10 * 1000)}
-              >
-                {artist?.name}
-              </div>
-            )
-          })}
+          <div className="artistNameContainer">
+            {track?.artists?.map((artist) => {
+              return (
+                <div
+                  className="artistName"
+                  key={track?.id + Math.random(10 * 1000)}
+                >
+                  {artist?.name}
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </div>

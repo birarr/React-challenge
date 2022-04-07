@@ -4,9 +4,9 @@ import InfiniteScroll from 'react-infinite-scroller'
 import { Link } from 'react-router-dom'
 import ClipLoader from 'react-spinners/ClipLoader'
 import { Card } from '../Card'
+import { LoginButton } from '../loginButton'
 
 import './styles.css'
-import { LoginButton } from '../loginButton'
 
 export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
   const [color, setColor] = useState('#DADADA')
@@ -17,7 +17,7 @@ export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
     display: 'grid',
     justifyContent: 'center',
     width: '100%',
-    gridTemplateColumns: 'repeat(auto-fill, 186px)',
+    gridTemplateColumns: 'repeat(auto-fill, 240px)',
     rowGap: '10px',
     columnGap: '20px',
   }
@@ -45,7 +45,6 @@ export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
   const {
     data: trackData,
     status: trackStatus,
-    error,
     fetchNextPage,
     hasNextPage,
     refetch,
@@ -60,7 +59,7 @@ export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
       setSearchSubmit(false)
     }
   }, [searchSubmit])
-
+  console.log({ trackStatus })
   return (
     <>
       {!token ? (
