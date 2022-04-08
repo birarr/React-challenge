@@ -64,7 +64,7 @@ export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
     <>
       {!token ? (
         <div className="loginAlert">
-          <h1>Please, login to your spotify acount</h1>
+          <h1>Please, login to your spotify account</h1>
           <LoginButton />
         </div>
       ) : (
