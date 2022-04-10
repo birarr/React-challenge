@@ -59,7 +59,7 @@ export const Tracks = ({ searchTerm, searchSubmit, setSearchSubmit }) => {
       setSearchSubmit(false)
     }
   }, [searchSubmit])
-  console.log({ trackStatus })
+
   return (
     <>
       {!token ? (
