@@ -5,7 +5,9 @@ import './styles.css'
 export const Card = ({ track }) => {
   const renderImage = useMemo(() => {
     if (track?.album?.images?.length) {
-      return <img src={track?.album?.images[0].url} alt="" className="imgBx" />
+      return (
+        <img src={track?.album?.images[0].url} alt="album" className="imgBx" />
+      )
     } else {
       return <div>No image</div>
     }

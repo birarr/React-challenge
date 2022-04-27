@@ -3,7 +3,7 @@ import { useQuery } from 'react-query'
 import { useParams, useNavigate } from 'react-router-dom'
 import { LoginButton } from '../loginButton'
 import { IoMdArrowRoundBack } from 'react-icons/io'
-
+import { fetchTrack } from '../../services/requests'
 import './styles.css'
 
 export const TrackDetails = () => {
@@ -11,19 +11,8 @@ export const TrackDetails = () => {
   const token = localStorage.getItem('token')
   const navigate = useNavigate()
 
-  const fetchTrack = async () => {
-    const response = await fetch(`https://api.spotify.com/v1/tracks/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    const data = await response.json()
-    return data
-  }
-
-  const { data: trackData, status: characterStatus } = useQuery(
-    'track',
-    fetchTrack
+  const { data: trackData, status: characterStatus } = useQuery('track', () =>
+    fetchTrack(id)
   )
 
   const handleBackPage = () => {
