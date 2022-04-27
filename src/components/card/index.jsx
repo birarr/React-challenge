@@ -7,7 +7,7 @@ export const Card = ({ track }) => {
     if (track?.album?.images?.length) {
       return <img src={track?.album?.images[0].url} alt="" className="imgBx" />
     } else {
-      return <div>No mage</div>
+      return <div>No image</div>
     }
   }, [track?.album?.images?.length])
 
