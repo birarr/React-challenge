@@ -5,14 +5,6 @@ import './styles.css'
 export const LoginButton = () => {
   const [token, setToken] = useState('')
 
-  // ********** I'll let my variables here, so you can test the application with it,
-  // without the needed to go after that on the Spotify API ************************
-
-  // const CLIENT_ID = 'ac87a95f875f405f83beff47c9fbbe74'
-  // const REDIRECT_URI = 'http://localhost:8080/'
-  // const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize'
-  // const RESPONSE_TYPE = 'token'
-
   useEffect(() => {
     const hash = window.location.hash
     let token = window.localStorage.getItem('token')
