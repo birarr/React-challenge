@@ -1,0 +1,41 @@
+.homeTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputTitle {
+  max-height: 20px;
+  margin-left: 20px;
+  border: none;
+  border-bottom: solid 1px;
+}
+
+.inputTitle:focus {
+  outline: none;
+}
+
+.buttonSearch {
+  background: #f8f8f8;
+  color: inherit;
+  border: none;
+  padding: 10px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-left: 10px;
+  border-radius: 8px;
+  box-shadow: lightcoral;
+}
+
+.buttonSearch:hover {
+  background: #e8e8e8;
+  opacity: 0.8;
+}
+
+@media only screen and (max-width: 600px) {
+  .homeTitleH1 {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+}

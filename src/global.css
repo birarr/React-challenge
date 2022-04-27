@@ -1,5 +1,6 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
 }
 
 header {
@@ -12,7 +13,7 @@ header {
 
 nav {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 1200px;
@@ -21,11 +22,8 @@ nav {
 main {
   display: flex;
   justify-content: center;
-  /* width: 100vw; */
 }
 
 main section {
   width: 100%;
-  max-width: 1200px;
 }
-
