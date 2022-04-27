@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import './styles.css'
 
 export const Card = ({ track }) => {
+  const renderImage = useMemo(() => {
+    if (track?.album?.images?.length) {
+      return <img src={track?.album?.images[0].url} alt="" className="imgBx" />
+    } else {
+      return <div>No mage</div>
+    }
+  }, [track?.album?.images?.length])
+
   return (
     <div className="cardContainer">
       <div className="card">
-        {track?.album?.images?.length ? (
-          <img src={track?.album?.images[0].url} alt="" className="imgBx" />
-        ) : (
-          <div>No Image</div>
-        )}
+        {renderImage}
         <div className="contentBx">
           <h3>{track?.name}</h3>
           <h4 className="artistNameTitle">Artist:</h4>

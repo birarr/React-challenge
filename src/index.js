@@ -7,7 +7,6 @@ import App from './App.jsx'
 ReactDOM.render(
   <QueryClientProvider client={queryClient}>
     <App />
-    {/* <ReactQueryDevtools initialIsOpen={false} position={'bottom-right'} /> */}
   </QueryClientProvider>,
   document.getElementById('root')
 )
